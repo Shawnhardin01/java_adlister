@@ -1,23 +1,42 @@
-<%@ page import="dao.DaoFactory" %>
-<%@ page import="java.awt.*" %><%--
-  Created by IntelliJ IDEA.
-  User: shawnhardin
-  Date: 3/10/23
-  Time: 2:06 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:include page="/partials/frontpage.jsp" />
 <html>
 <head>
-    <title>Title</title>
+
 </head>
 <body>
-<form action = "index.jsp" method = "GET">
-    <h1> type something</h1>
-<input type="text">
 
 
-</form>
+<div class="container">
+    <h1>Here Are all the ads!</h1>
+
+    <c:forEach var="ad" items="${ads}">
+        <div class="col-md-6">
+            <h2>${ad.title}</h2>
+            <p>${ad.description}</p>
+        </div>
+    </c:forEach>
+</div>
+
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

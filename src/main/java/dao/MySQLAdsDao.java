@@ -3,21 +3,67 @@ package dao;
 import ADS.Ad;
 import ADS.Ads;
 
+import java.io.ObjectInputFilter;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+import java.util.logging.Logger;
+
+import static java.Config.*;
 
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
 
-    public MySQLAdsDao() {
-        try {
-            // Connect to the MySQL database
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:8080/ymir-shawn", "username", "password");
+    public MySQLAdsDao(ObjectInputFilter.Config config) {
+        try {  DriverManager.registerDriver(new Driver() {
+            @Override
+            public Connection connect(String url, Properties info) throws SQLException {
+                return null;
+            }
+
+            @Override
+            public boolean acceptsURL(String url) throws SQLException {
+                return false;
+            }
+
+            @Override
+            public DriverPropertyInfo[] getPropertyInfo(String url, Properties info) throws SQLException {
+                return new DriverPropertyInfo[0];
+            }
+
+            @Override
+            public int getMajorVersion() {
+                return 0;
+            }
+
+            @Override
+            public int getMinorVersion() {
+                return 0;
+            }
+
+            @Override
+            public boolean jdbcCompliant() {
+                return false;
+            }
+
+            @Override
+            public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+                return null;
+            }
+        });
+
+            connection = DriverManager.getConnection(
+                    getUrl(),
+                   getUser(),
+                    getPassword()
+            );
         } catch (SQLException e){
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error connecting to the database!",e);
         }
     }
+
+
 
     @Override
     public List<Ad> all() {
