@@ -13,7 +13,7 @@ public class MySQLAdsDao implements Ads {
     public MySQLAdsDao() {
         try {
             // Connect to the MySQL database
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase", "username", "password");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:8080/ymir-shawn", "username", "password");
         } catch (SQLException e){
             throw new RuntimeException(e);
         }

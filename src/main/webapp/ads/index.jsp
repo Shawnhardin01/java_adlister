@@ -12,14 +12,12 @@
     <title>Title</title>
 </head>
 <body>
-<form action = "index.jsp" method = "POST">
+<form action = "index.jsp" method = "GET">
     <h1> type something</h1>
 <input type="text">
 
 
 </form>
 </body>
-<%
 
-%>
 </html>
