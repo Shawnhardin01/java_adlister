@@ -5,6 +5,10 @@
   Time: 10:27 AM
   To change this template use File | Settings | File Templates.
 --%>
+<jsp:include page="partials/navbar.jsp" />
+
+
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,7 +16,7 @@
 </head>
 <body>
 
-<form action = "login.jsp" method = "POST">
+<form action = "login" method = "POST">
     Username:<label>
     <input type = "text" id="username" name = "username">
 </label>
@@ -25,14 +29,14 @@
 
 </form>
 
-<%
-    String username = request.getParameter("username");
-    String password = request.getParameter("password");
-    if ("admin".equals(username) && "password".equals(password)) {
-        response.sendRedirect("profile.jsp");
-    } else if (username != null || password != null) {
-        response.sendRedirect("login.jsp");
-    }
-%>
+<%--<%--%>
+<%--    String username = request.getParameter("username");--%>
+<%--    String password = request.getParameter("password");--%>
+<%--    if ("admin".equals(username) && "password".equals(password)) {--%>
+<%--        response.sendRedirect("profile.jsp");--%>
+<%--    } else if (username != null || password != null) {--%>
+<%--        response.sendRedirect("login.jsp");--%>
+<%--    }--%>
+<%--%>--%>
 </body>
 </html>
