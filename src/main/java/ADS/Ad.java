@@ -16,6 +16,9 @@ public class Ad  {
     public Ad(String title, String description, double price) {
     }
 
+    public Ad(long id, long user_id, String title, String description) {
+    }
+
     public long getId() {
         return id;
     }

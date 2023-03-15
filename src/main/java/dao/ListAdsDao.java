@@ -26,13 +26,14 @@ public class ListAdsDao implements Ads {
     }
 
     @Override
-    public void insert(Ad ad) throws SQLException {
+    public long insert(Ad ad) throws SQLException {
         String query = "INSERT INTO ads (title, description, price) VALUES (?, ?, ?)";
         PreparedStatement stmt = conn.prepareStatement(query);
         stmt.setString(1, ad.getTitle());
         stmt.setString(2, ad.getDescription());
         stmt.setDouble(3, ad.getPrice());
         stmt.executeUpdate();
+        return 0;
     }
 
     @Override
