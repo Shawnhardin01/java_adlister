@@ -1,4 +1,4 @@
-USE adlister_db;
+USE ymir_shawn;
 
 DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
@@ -11,7 +11,7 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE ads (
+CREATE TABLE ads(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id INT UNSIGNED NOT NULL,
     title VARCHAR(240) NOT NULL,
